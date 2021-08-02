@@ -53,6 +53,12 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
+                          Text(
+                            'Silahkan login menggunakan email yang sudah didaftarkan',
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                            ),
+                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -94,7 +100,24 @@ class _LoginPageState extends State<LoginPage> {
                               minimumSize:
                                   Size(MediaQuery.of(context).size.width, 50),
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            children: [
+                              Text('Belum punya akun?'),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    primary: Colors.red,
+                                  ),
+                                  child: Text('Daftar Sekarang'))
+                            ],
+                          ),
                         ],
                       ),
                     ),
