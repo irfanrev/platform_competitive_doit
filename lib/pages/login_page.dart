@@ -1,4 +1,6 @@
+import 'package:cpc_platform/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -57,16 +59,18 @@ class _LoginPageState extends State<LoginPage> {
                             'Silahkan login menggunakan email yang sudah didaftarkan',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
+                              color: Colors.grey,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 30,
                           ),
                           TextField(
                             controller: emailC,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15)),
+                                    borderRadius: BorderRadius.circular(8)),
                                 suffixIcon: Icon(Icons.person),
                                 hintText: 'email'),
                           ),
@@ -78,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                             obscureText: true,
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15)),
+                                    borderRadius: BorderRadius.circular(8)),
                                 suffixIcon: Icon(Icons.security),
                                 hintText: 'password'),
                           ),
@@ -86,7 +90,10 @@ class _LoginPageState extends State<LoginPage> {
                             height: 15,
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(Dashboard(),
+                                  transition: Transition.fadeIn);
+                            },
                             child: Text(
                               'Login',
                               style: GoogleFonts.poppins(
@@ -117,6 +124,9 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                   child: Text('Daftar Sekarang'))
                             ],
+                          ),
+                          SizedBox(
+                            height: 20,
                           ),
                         ],
                       ),
