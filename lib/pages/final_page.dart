@@ -12,69 +12,70 @@ class _FinalState extends State<Final> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          height: 85,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(blurRadius: 7, color: Colors.grey),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Image.asset(
-                    'assets/logopekanit.png',
-                    height: 65,
-                    width: 65,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Pekan IT',
-                    style: GoogleFonts.poppins(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+        appBar: PreferredSize(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            height: 85,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(blurRadius: 7, color: Colors.grey),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/logopekanit.png',
+                      height: 65,
+                      width: 65,
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Irfan Maulana',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    width: 55,
-                    height: 55,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage('assets/ngoding.png'),
-                        fit: BoxFit.fitWidth,
+                    Text(
+                      'Pekan IT',
+                      style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Irfan Maulana',
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: 55,
+                      height: 55,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('assets/ngoding.png'),
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
+          preferredSize: Size.fromHeight(85),
         ),
-        preferredSize: Size.fromHeight(85),
-      ),
-      body: Text('babak 2'),
-    );
+        body: ListView(
+          children: [Text('test')],
+        ));
   }
 }

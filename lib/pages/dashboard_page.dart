@@ -1,5 +1,6 @@
 import 'package:cpc_platform/pages/final_page.dart';
 import 'package:cpc_platform/pages/penyelisihan_page.dart';
+import 'package:cpc_platform/widgets/ranking.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -336,7 +337,7 @@ class _DashboardState extends State<Dashboard> {
                                   width: 10,
                                 ),
                                 Text(
-                                  'Rangking',
+                                  'Top Ratings',
                                   style: GoogleFonts.poppins(
                                     fontSize: 18,
                                     color: Colors.black,
@@ -346,6 +347,12 @@ class _DashboardState extends State<Dashboard> {
                             ),
                           ),
                           Divider(),
+                          Container(
+                            width: 400,
+                            height: 400,
+                            padding: EdgeInsets.symmetric(horizontal: 8),
+                            child: Ranking(),
+                          ),
                         ],
                       ),
                     ),
