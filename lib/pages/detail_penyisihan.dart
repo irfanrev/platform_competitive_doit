@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class DetailPenyisihan extends StatefulWidget {
   const DetailPenyisihan({Key? key}) : super(key: key);
@@ -75,8 +76,40 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
         ),
         preferredSize: Size.fromHeight(85),
       ),
-      body: Center(
-        child: Text('hello'),
+      body: ListView(
+        children: [
+          Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 400,
+                color: Colors.teal,
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(200, 100, 200, 100),
+                padding: EdgeInsets.all(20),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  children: [
+                    Text('data'),
+                    Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: SfPdfViewer.network(
+                            'http://www.africau.edu/images/default/sample.pdf')),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 200,
+                      color: Colors.blue,
+                    )
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
