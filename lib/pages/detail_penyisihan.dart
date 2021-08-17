@@ -89,24 +89,13 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
                 margin: EdgeInsets.fromLTRB(200, 100, 200, 100),
                 padding: EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width,
+                height: 800,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10)),
-                child: Column(
-                  children: [
-                    Text('data'),
-                    Container(
-                        width: MediaQuery.of(context).size.width,
-                        child: SfPdfViewer.network(
-                            'http://www.africau.edu/images/default/sample.pdf')),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 200,
-                      color: Colors.blue,
-                    )
-                  ],
-                ),
-              )
+                child: SfPdfViewer.network(
+                    'http://www.africau.edu/images/default/sample.pdf'),
+              ),
             ],
           )
         ],
