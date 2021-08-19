@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -56,16 +58,38 @@ class _ListPenyelisihanAdminState extends State<ListPenyelisihanAdmin> {
                     ),
                     subtitle: Text(data['sub']),
                     trailing: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.defaultDialog(
+                          title: 'Delete Data ?',
+                          confirm: ElevatedButton(
+                            onPressed: () {
+                              users.doc(data.id).delete();
+                              Get.back();
+                            },
+                            child: Text('Delete'),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.red[900],
+                            ),
+                          ),
+                          cancel: ElevatedButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text('Cancel'),
+                            style:
+                                ElevatedButton.styleFrom(primary: Colors.green),
+                          ),
+                        );
+                      },
                       onHover: (_) {},
                       child: Container(
                         padding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: Colors.green),
+                            color: Colors.red[900]),
                         child: Text(
-                          'View',
+                          'Delete',
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             color: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cpc_platform/admin/widgets/penyelisihan_soal_admin.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +13,17 @@ class InputPenyelisihan extends StatefulWidget {
 }
 
 class _InputPenyelisihanState extends State<InputPenyelisihan> {
+  TextEditingController idC = TextEditingController();
+  TextEditingController namaC = TextEditingController();
+  TextEditingController jmlPoinC = TextEditingController();
+  TextEditingController soalC = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    CollectionReference users = firestore.collection('penyelisihan');
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: PreferredSize(
@@ -124,6 +134,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                             height: 10,
                           ),
                           TextField(
+                            controller: idC,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
@@ -147,6 +158,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                             height: 10,
                           ),
                           TextField(
+                            controller: namaC,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
@@ -170,6 +182,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                             height: 10,
                           ),
                           TextField(
+                            controller: jmlPoinC,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
@@ -193,6 +206,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                             height: 10,
                           ),
                           TextField(
+                            controller: soalC,
                             maxLines: 5,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
@@ -210,10 +224,25 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                                 fillColor: Colors.grey[100]),
                           ),
                           SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              users.add({
+                                'id': idC.text,
+                                'title': namaC.text,
+                                'sub': jmlPoinC.text,
+                                'soal': soalC.text,
+                              });
+                              idC.text = '';
+                              namaC.text = '';
+                              jmlPoinC.text = '';
+                              soalC.text = '';
+
+                              Get.defaultDialog(
+                                  title: 'Berhasil',
+                                  middleText: 'upload berhasil');
+                            },
                             child: Text(
                               'Upload',
                               style: GoogleFonts.poppins(
@@ -261,7 +290,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                               width: 10,
                             ),
                             Text(
-                              'Soal Competitive Programming - Babak 1',
+                              'Database Soal - Babak 1',
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
                                 color: Colors.black,
