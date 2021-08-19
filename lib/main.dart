@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cpc_platform/admin/page/dashboard_admin.dart';
 import 'package:cpc_platform/pages/dashboard_page.dart';
 import 'package:cpc_platform/pages/final_page.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LandingPage(),
+            home: DashboardAmdin(),
           );
         }
         return MaterialApp(
