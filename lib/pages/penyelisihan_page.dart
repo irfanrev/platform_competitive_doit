@@ -76,75 +76,77 @@ class _PenyelisihanState extends State<Penyelisihan> {
         ),
         preferredSize: Size.fromHeight(85),
       ),
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 100),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Image.asset(
-                    'assets/code.png',
-                    height: 700,
-                  ),
-                ),
-                SizedBox(
-                  width: 50,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: 600,
-                      height: 50,
-                      padding: EdgeInsets.only(top: 20),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10))),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(
-                            Icons.task_rounded,
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            'Soal Competitive Programming - Babak 1',
-                            style: GoogleFonts.poppins(
-                              fontSize: 18,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 600,
-                      height: 700,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10)),
-                        color: Colors.white,
-                      ),
-                      child: ListPenyelisihan(),
-                    ),
-                  ],
-                ),
-              ],
+      body: SafeArea(
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 20,
             ),
-          )
-        ],
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 100),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      'assets/code.png',
+                      height: 700,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 600,
+                        height: 50,
+                        padding: EdgeInsets.only(top: 20),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10))),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Icon(
+                              Icons.task_rounded,
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'Soal Competitive Programming - Babak 1',
+                              style: GoogleFonts.poppins(
+                                fontSize: 18,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        width: 600,
+                        height: 700,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                          color: Colors.white,
+                        ),
+                        child: ListPenyelisihan(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

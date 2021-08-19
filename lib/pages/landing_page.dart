@@ -1,4 +1,8 @@
+import 'dart:html';
+
+import 'package:cpc_platform/admin/page/login_admin.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cpc_platform/widgets/header.dart';
@@ -59,24 +63,27 @@ class _LandingPageState extends State<LandingPage> {
                             SizedBox(
                               height: 20,
                             ),
-                            HoverButton(
-                              onpressed: () {},
-                              enableFeedback: false,
-                              hoverElevation: 8.0,
-                              splashColor: Colors.grey,
-                              animationDuration: Duration(milliseconds: 1),
+                            ElevatedButton(
+                              onPressed: () {},
                               child: Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 15),
-                                decoration: BoxDecoration(
-                                    color: Color(0xff33CC99),
-                                    borderRadius: BorderRadius.circular(13)),
-                                child: Text(
-                                  'Daftar Sekarang',
-                                  style: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontSize: 18,
+                                width: 300,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 10),
+                                child: Center(
+                                  child: Text(
+                                    'Daftar Sekarang',
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
                                   ),
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff33CC99),
+                                padding: EdgeInsets.symmetric(vertical: 10),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                             ),
@@ -86,6 +93,41 @@ class _LandingPageState extends State<LandingPage> {
                       Image.asset(
                         'assets/coding.gif',
                         width: 550,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Divider(
+                  color: Colors.black,
+                  height: 30,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '© HIMTIKA 2021',
+                        style: GoogleFonts.poppins(),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Powered by DoIT 5.0  ',
+                            style: GoogleFonts.poppins(),
+                          ),
+                          Text('|'),
+                          TextButton(
+                              onPressed: () {
+                                Get.to(LoginAdmin(),
+                                    transition: Transition.fadeIn);
+                              },
+                              child: Text('Admin'))
+                        ],
                       )
                     ],
                   ),

@@ -1,20 +1,18 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
-class DetailPenyisihan extends StatefulWidget {
+class DetailFinal extends StatefulWidget {
   final DocumentSnapshot data;
-  DetailPenyisihan({required this.data});
+  DetailFinal({required this.data});
 
   @override
-  _DetailPenyisihanState createState() => _DetailPenyisihanState();
+  _DetailFinalState createState() => _DetailFinalState();
 }
 
-class _DetailPenyisihanState extends State<DetailPenyisihan> {
+class _DetailFinalState extends State<DetailFinal> {
   void submitCode() {
     Get.defaultDialog(
       titlePadding: EdgeInsets.all(15),

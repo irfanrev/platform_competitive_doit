@@ -1,19 +1,40 @@
-import 'package:cpc_platform/pages/dashboard_page.dart';
-import 'package:cpc_platform/pages/register_page.dart';
+import 'package:cpc_platform/pages/login_page.dart';
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+import 'dashboard_page.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailC = TextEditingController();
   TextEditingController passwdC = TextEditingController();
+  TextEditingController repasswdC = TextEditingController();
+
+  void registerSubmit() {
+    Get.defaultDialog(
+      titlePadding: EdgeInsets.all(15),
+      radius: 10,
+      title: 'Success',
+      content: Container(
+        width: 200,
+        height: 200,
+        child: Lottie.asset('assets/sukses.json'),
+      ),
+      confirm: ElevatedButton(
+        onPressed: () => Get.offAll(Dashboard(), transition: Transition.fadeIn),
+        child: Text('Oke'),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +71,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: [
                           Text(
-                            'Login',
+                            'Register',
                             style: GoogleFonts.poppins(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            'Silahkan login menggunakan email yang sudah didaftarkan',
+                            'Register menggunakan akun yang telah di daftarkan pada lomba Competitive Programming DoIT 5.0',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               color: Colors.grey,
@@ -88,15 +109,24 @@ class _LoginPageState extends State<LoginPage> {
                                 hintText: 'password'),
                           ),
                           SizedBox(
+                            height: 10,
+                          ),
+                          TextField(
+                            controller: repasswdC,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                                suffixIcon: Icon(Icons.security),
+                                hintText: 'password'),
+                          ),
+                          SizedBox(
                             height: 15,
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              Get.to(Dashboard(),
-                                  transition: Transition.fadeIn);
-                            },
+                            onPressed: registerSubmit,
                             child: Text(
-                              'Login',
+                              'Register',
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
                                 color: Colors.white,
@@ -114,19 +144,20 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Row(
                             children: [
-                              Text('Belum punya akun?'),
+                              Text('Sudah punya akun?'),
                               SizedBox(
                                 width: 10,
                               ),
                               TextButton(
-                                  onPressed: () {
-                                    Get.to(RegisterPage(),
-                                        transition: Transition.fadeIn);
-                                  },
-                                  style: TextButton.styleFrom(
-                                    primary: Colors.red,
-                                  ),
-                                  child: Text('Daftar Sekarang'))
+                                onPressed: () {
+                                  Get.to(LoginPage(),
+                                      transition: Transition.fadeIn);
+                                },
+                                style: TextButton.styleFrom(
+                                  primary: Colors.red,
+                                ),
+                                child: Text('Login'),
+                              )
                             ],
                           ),
                           SizedBox(

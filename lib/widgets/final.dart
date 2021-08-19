@@ -1,22 +1,23 @@
-import 'package:cpc_platform/pages/detail_penyisihan.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cpc_platform/pages/detail_final.dart';
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ListPenyelisihan extends StatefulWidget {
+class ListFinal extends StatefulWidget {
+  const ListFinal({Key? key}) : super(key: key);
+
   @override
-  _ListPenyelisihanState createState() => _ListPenyelisihanState();
+  _ListFinalState createState() => _ListFinalState();
 }
 
-class _ListPenyelisihanState extends State<ListPenyelisihan> {
+class _ListFinalState extends State<ListFinal> {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-    CollectionReference users = firestore.collection('penyelisihan');
+    CollectionReference users = firestore.collection('final');
 
     return SafeArea(
       child: StreamBuilder<QuerySnapshot>(
@@ -57,10 +58,7 @@ class _ListPenyelisihanState extends State<ListPenyelisihan> {
                     subtitle: Text(data['sub']),
                     trailing: InkWell(
                       onTap: () {
-                        Get.to(
-                            DetailPenyisihan(
-                              data: data,
-                            ),
+                        Get.to(DetailFinal(data: data),
                             transition: Transition.fadeIn);
                       },
                       onHover: (_) {},

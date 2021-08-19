@@ -1,4 +1,5 @@
 import 'package:cpc_platform/pages/login_page.dart';
+import 'package:cpc_platform/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -110,7 +111,9 @@ class HeaderNav extends StatelessWidget {
                 width: 80,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.to(RegisterPage(), transition: Transition.fadeIn);
+                },
                 onHover: (value) {
                   print(value);
                 },
