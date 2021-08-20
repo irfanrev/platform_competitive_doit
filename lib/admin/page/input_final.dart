@@ -1,18 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cpc_platform/admin/widgets/penyelisihan_soal_admin.dart';
+import 'package:cpc_platform/admin/widgets/final_soal_admin.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class InputPenyelisihan extends StatefulWidget {
-  const InputPenyelisihan({Key? key}) : super(key: key);
+class InputFinal extends StatefulWidget {
+  const InputFinal({Key? key}) : super(key: key);
 
   @override
-  _InputPenyelisihanState createState() => _InputPenyelisihanState();
+  _InputFinalState createState() => _InputFinalState();
 }
 
-class _InputPenyelisihanState extends State<InputPenyelisihan> {
+class _InputFinalState extends State<InputFinal> {
   TextEditingController idC = TextEditingController();
   TextEditingController namaC = TextEditingController();
   TextEditingController jmlPoinC = TextEditingController();
@@ -22,7 +22,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-    CollectionReference users = firestore.collection('penyelisihan');
+    CollectionReference users = firestore.collection('final');
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -310,7 +310,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                               bottomRight: Radius.circular(10)),
                           color: Colors.white,
                         ),
-                        child: ListPenyelisihanAdmin(),
+                        child: ListFinalAdmin(),
                       ),
                     ],
                   ),

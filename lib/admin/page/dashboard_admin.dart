@@ -1,3 +1,4 @@
+import 'package:cpc_platform/admin/page/input_final.dart';
 import 'package:cpc_platform/admin/page/input_penyelisihan.dart';
 import 'package:flutter/material.dart';
 
@@ -220,7 +221,10 @@ class _DashboardAmdinState extends State<DashboardAmdin> {
                                           style: GoogleFonts.poppins(),
                                         ),
                                         trailing: InkWell(
-                                          onTap: () {},
+                                          onTap: () {
+                                            Get.to(InputFinal(),
+                                                transition: Transition.fadeIn);
+                                          },
                                           onHover: (_) {},
                                           child: Container(
                                             padding: EdgeInsets.symmetric(
