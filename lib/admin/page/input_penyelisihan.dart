@@ -239,9 +239,7 @@ class _InputPenyelisihanState extends State<InputPenyelisihan> {
                               jmlPoinC.text = '';
                               soalC.text = '';
 
-                              Get.defaultDialog(
-                                  title: 'Berhasil',
-                                  middleText: 'upload berhasil');
+                              Get.snackbar('Success', 'Data berhasil diupload');
                             },
                             child: Text(
                               'Upload',

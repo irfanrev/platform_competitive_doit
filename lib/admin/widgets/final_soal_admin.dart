@@ -63,6 +63,7 @@ class _ListFinalAdminState extends State<ListFinalAdmin> {
                             onPressed: () {
                               users.doc(data.id).delete();
                               Get.back();
+                              Get.snackbar('Success', 'Data berhasil hapus!');
                             },
                             child: Text('Delete'),
                             style: ElevatedButton.styleFrom(

@@ -1,31 +1,29 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cpc_platform/admin/widgets/final_soal_admin.dart';
+import 'package:cpc_platform/admin/widgets/rangking_admin.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class InputFinal extends StatefulWidget {
-  const InputFinal({Key? key}) : super(key: key);
+class InputRating extends StatefulWidget {
+  const InputRating({Key? key}) : super(key: key);
 
   @override
-  _InputFinalState createState() => _InputFinalState();
+  _InputRatingState createState() => _InputRatingState();
 }
 
-class _InputFinalState extends State<InputFinal> {
+class _InputRatingState extends State<InputRating> {
   TextEditingController idC = TextEditingController();
   TextEditingController namaC = TextEditingController();
-  TextEditingController jmlPoinC = TextEditingController();
-  TextEditingController soalC = TextEditingController();
+  TextEditingController poinC = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-    CollectionReference users = firestore.collection('final');
+    CollectionReference users = firestore.collection('ranking');
 
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: PreferredSize(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -129,7 +127,7 @@ class _InputFinalState extends State<InputFinal> {
                           SizedBox(
                             height: 25,
                           ),
-                          Text('ID / Urutan'),
+                          Text('Id / Peringkat'),
                           SizedBox(
                             height: 10,
                           ),
@@ -144,7 +142,7 @@ class _InputFinalState extends State<InputFinal> {
                                     borderSide:
                                         BorderSide(color: Colors.transparent),
                                     borderRadius: BorderRadius.circular(10.0)),
-                                hintText: 'contoh : A',
+                                hintText: 'contoh : 1',
                                 hintStyle: GoogleFonts.poppins(
                                     fontSize: 14.0, color: Colors.grey[600]),
                                 filled: true,
@@ -153,7 +151,7 @@ class _InputFinalState extends State<InputFinal> {
                           SizedBox(
                             height: 15,
                           ),
-                          Text('Nama Soal'),
+                          Text('Nama Tim'),
                           SizedBox(
                             height: 10,
                           ),
@@ -168,7 +166,7 @@ class _InputFinalState extends State<InputFinal> {
                                     borderSide:
                                         BorderSide(color: Colors.transparent),
                                     borderRadius: BorderRadius.circular(10.0)),
-                                hintText: 'nama soal',
+                                hintText: 'contoh : suzuran',
                                 hintStyle: GoogleFonts.poppins(
                                     fontSize: 14.0, color: Colors.grey[600]),
                                 filled: true,
@@ -182,7 +180,7 @@ class _InputFinalState extends State<InputFinal> {
                             height: 10,
                           ),
                           TextField(
-                            controller: jmlPoinC,
+                            controller: poinC,
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
                                     borderSide:
@@ -199,47 +197,21 @@ class _InputFinalState extends State<InputFinal> {
                                 fillColor: Colors.grey[100]),
                           ),
                           SizedBox(
-                            height: 15,
-                          ),
-                          Text('Konten Soal'),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          TextField(
-                            controller: soalC,
-                            maxLines: 5,
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.transparent),
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.transparent),
-                                    borderRadius: BorderRadius.circular(10.0)),
-                                hintText: 'isi string url',
-                                hintStyle: GoogleFonts.poppins(
-                                    fontSize: 14.0, color: Colors.grey[600]),
-                                filled: true,
-                                fillColor: Colors.grey[100]),
-                          ),
-                          SizedBox(
                             height: 20,
                           ),
                           ElevatedButton(
                             onPressed: () {
                               users.add({
                                 'id': idC.text,
-                                'title': namaC.text,
-                                'sub': jmlPoinC.text,
-                                'soal': soalC.text,
+                                'poin': poinC.text,
+                                'tim': namaC.text,
                               });
-                              idC.text = '';
-                              namaC.text = '';
-                              jmlPoinC.text = '';
-                              soalC.text = '';
 
-                              Get.snackbar('Success', 'Data berhasil diupload');
+                              idC.text = '';
+                              poinC.text = '';
+                              namaC.text = '';
+
+                              Get.snackbar('Success', 'Upload data berhasil!');
                             },
                             child: Text(
                               'Upload',
@@ -288,7 +260,7 @@ class _InputFinalState extends State<InputFinal> {
                               width: 10,
                             ),
                             Text(
-                              'Database Soal - Babak 2',
+                              'Database Rating Peserta',
                               style: GoogleFonts.poppins(
                                 fontSize: 18,
                                 color: Colors.black,
@@ -308,7 +280,7 @@ class _InputFinalState extends State<InputFinal> {
                               bottomRight: Radius.circular(10)),
                           color: Colors.white,
                         ),
-                        child: ListFinalAdmin(),
+                        child: ListRangkingAdmin(),
                       ),
                     ],
                   ),

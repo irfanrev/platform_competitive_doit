@@ -1,5 +1,6 @@
 import 'package:cpc_platform/admin/page/input_final.dart';
 import 'package:cpc_platform/admin/page/input_penyelisihan.dart';
+import 'package:cpc_platform/admin/page/input_rating.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -327,20 +328,27 @@ class _DashboardAmdinState extends State<DashboardAmdin> {
                                     borderRadius: BorderRadius.circular(10)),
                                 child: ListTile(
                                   title: Text('Input Rating Poin'),
-                                  trailing: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 8),
-                                    width: 100,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.green),
-                                    child: Center(
-                                      child: Text(
-                                        'Input',
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 14,
-                                          color: Colors.white,
+                                  trailing: InkWell(
+                                    onTap: () {
+                                      Get.to(InputRating(),
+                                          transition: Transition.fadeIn);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 8),
+                                      width: 100,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.green),
+                                      child: Center(
+                                        child: Text(
+                                          'Input',
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 14,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -357,20 +365,24 @@ class _DashboardAmdinState extends State<DashboardAmdin> {
                                     borderRadius: BorderRadius.circular(10)),
                                 child: ListTile(
                                   title: Text('Lihat Hasil'),
-                                  trailing: Container(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 15, vertical: 8),
-                                    width: 100,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: Colors.green),
-                                    child: Center(
-                                      child: Text(
-                                        'Lihat',
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 14,
-                                          color: Colors.white,
+                                  trailing: InkWell(
+                                    onTap: () {},
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 8),
+                                      width: 100,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.green),
+                                      child: Center(
+                                        child: Text(
+                                          'Lihat',
+                                          style: GoogleFonts.poppins(
+                                            fontSize: 14,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),

@@ -65,6 +65,7 @@ class _ListPenyelisihanAdminState extends State<ListPenyelisihanAdmin> {
                             onPressed: () {
                               users.doc(data.id).delete();
                               Get.back();
+                              Get.snackbar('Success', 'Data berhasil hapus!');
                             },
                             child: Text('Delete'),
                             style: ElevatedButton.styleFrom(
