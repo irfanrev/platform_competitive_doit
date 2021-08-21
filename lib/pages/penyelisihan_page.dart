@@ -39,7 +39,7 @@ class _PenyelisihanState extends State<Penyelisihan> {
                     width: 10,
                   ),
                   Text(
-                    'Pekan IT',
+                    'DoIT 5.0',
                     style: GoogleFonts.poppins(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,

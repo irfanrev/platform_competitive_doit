@@ -49,17 +49,18 @@ class _RankingState extends State<Ranking> {
                     ),
                   ),
                   trailing: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                     width: 100,
                     height: 40,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[300]),
-                    child: Text(
-                      data['poin'],
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        color: Colors.black,
+                    child: Center(
+                      child: Text(
+                        data['poin'],
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),

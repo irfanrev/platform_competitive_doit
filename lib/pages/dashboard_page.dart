@@ -90,17 +90,20 @@ class _DashboardState extends State<Dashboard> {
                             children: [
                               Text(
                                   'Competitive Programming Competition - DoIT 5.0'),
-                              Container(
-                                height: 40,
-                                padding: EdgeInsets.symmetric(horizontal: 13),
-                                decoration: BoxDecoration(
-                                    color: Colors.green,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Center(
-                                  child: Text(
-                                    'Submission',
-                                    style: GoogleFonts.poppins(
-                                      color: Colors.white,
+                              InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  height: 40,
+                                  padding: EdgeInsets.symmetric(horizontal: 13),
+                                  decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Center(
+                                    child: Text(
+                                      'Logout',
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -395,7 +398,7 @@ class _DashboardState extends State<Dashboard> {
                         width: 10,
                       ),
                       Text(
-                        'Pekan IT',
+                        'DoIT 5.0',
                         style: GoogleFonts.poppins(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,

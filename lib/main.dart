@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LandingPage(),
+            home: Penyelisihan(),
           );
         }
         return MaterialApp(
