@@ -1,7 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cpc_platform/pages/final_page.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:lottie/lottie.dart';
 
 class DetailFinal extends StatefulWidget {
@@ -13,16 +19,39 @@ class DetailFinal extends StatefulWidget {
 }
 
 class _DetailFinalState extends State<DetailFinal> {
+  double progress = 0.0;
+
+  void uploadFIle() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+
+    if (result != null) {
+      Uint8List? file = result.files.first.bytes;
+      String fileName = result.files.first.name;
+
+      UploadTask uploadTask = FirebaseStorage.instance
+          .ref()
+          .child('hasil-babak2/$fileName')
+          .putData(file!);
+
+      uploadTask.snapshotEvents.listen((event) {
+        setState(() {
+          progress = ((event.bytesTransferred.toDouble() /
+                      event.totalBytes.toDouble()) *
+                  100)
+              .roundToDouble();
+
+          print(progress);
+        });
+      });
+    }
+  }
+
   void submitCode() {
     Get.defaultDialog(
       titlePadding: EdgeInsets.all(15),
       radius: 10,
       title: 'Success',
-      content: Container(
-        width: 200,
-        height: 200,
-        child: Lottie.asset('assets/sukses.json'),
-      ),
+      middleText: 'Jawaban berhasil di submit!',
       confirm: ElevatedButton(
         onPressed: () => Get.back(),
         child: Text('Oke'),
@@ -151,58 +180,80 @@ class _DetailFinalState extends State<DetailFinal> {
                           SizedBox(
                             height: 15,
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 22),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[300],
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Source Code',
-                                  style: GoogleFonts.poppins(fontSize: 16),
-                                ),
-                                SizedBox(
-                                  width: 30,
-                                ),
-                                Row(
-                                  children: [
-                                    Text('No file selected'),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    ElevatedButton(
-                                      onPressed: () {},
-                                      child: Container(
-                                        width: 100,
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 8),
-                                        child: Center(
-                                          child: Text(
-                                            'Browse',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 16,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 22),
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey[300],
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Source Code',
+                                        style:
+                                            GoogleFonts.poppins(fontSize: 16),
+                                      ),
+                                      SizedBox(
+                                        width: 30,
+                                      ),
+                                      Row(
+                                        children: [
+                                          ElevatedButton(
+                                            onPressed: uploadFIle,
+                                            child: Container(
+                                              width: 100,
+                                              margin: EdgeInsets.symmetric(
+                                                  horizontal: 15, vertical: 8),
+                                              child: Center(
+                                                child: Text(
+                                                  'Browse',
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 16,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            style: ElevatedButton.styleFrom(
+                                              primary: Colors.green,
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 10),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              ),
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                      style: ElevatedButton.styleFrom(
-                                        primary: Colors.green,
-                                        padding:
-                                            EdgeInsets.symmetric(vertical: 10),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(
+                                width: 40,
+                              ),
+                              Container(
+                                height: 150,
+                                width: 150,
+                                child: LiquidCircularProgressIndicator(
+                                  value: progress / 100,
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.green),
+                                  backgroundColor: Colors.white,
+                                  direction: Axis.vertical,
+                                  center: Text(
+                                    '$progress%',
+                                    style: GoogleFonts.poppins(),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(
                             height: 15,

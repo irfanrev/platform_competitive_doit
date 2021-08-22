@@ -168,7 +168,27 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '© HIMTIKA 2021',
+                      style: GoogleFonts.poppins(),
+                    ),
+                    Text(
+                      'Powered by DoIT 5.0  ',
+                      style: GoogleFonts.poppins(),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
           Container(

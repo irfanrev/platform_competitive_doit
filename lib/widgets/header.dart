@@ -50,66 +50,6 @@ class HeaderNav extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              HoverButton(
-                onpressed: () {},
-                //color: Color(0xffEDFAF3),
-                hoverTextColor: Color(0xff33CC99),
-                hoverColor: Color(0xffEDFAF3),
-                child: Text(
-                  'Tentang',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              HoverButton(
-                onpressed: () {},
-                //color: Color(0xffEDFAF3),
-                hoverTextColor: Color(0xff33CC99),
-                hoverColor: Color(0xffEDFAF3),
-                child: Text(
-                  'Berita',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              HoverButton(
-                onpressed: () {},
-                //color: Color(0xffEDFAF3),
-                hoverTextColor: Color(0xff33CC99),
-                hoverColor: Color(0xffEDFAF3),
-                child: Text(
-                  'Kontak',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              HoverButton(
-                onpressed: () {},
-                //color: Color(0xffEDFAF3),
-                hoverTextColor: Color(0xff33CC99),
-                hoverColor: Color(0xffEDFAF3),
-                child: Text(
-                  'Unduhan',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 80,
-              ),
               InkWell(
                 onTap: () {
                   Get.to(RegisterPage(), transition: Transition.fadeIn);

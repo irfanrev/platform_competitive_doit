@@ -53,13 +53,9 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
       titlePadding: EdgeInsets.all(15),
       radius: 10,
       title: 'Success',
-      content: Container(
-        width: 200,
-        height: 200,
-        child: Lottie.asset('assets/sukses.json'),
-      ),
+      middleText: 'Jawaban berhasil di submit!',
       confirm: ElevatedButton(
-        onPressed: () => Get.to(Penyelisihan(), transition: Transition.fadeIn),
+        onPressed: () => Get.back(),
         child: Text('Oke'),
       ),
     );

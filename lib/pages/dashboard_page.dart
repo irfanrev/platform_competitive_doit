@@ -368,7 +368,24 @@ class _DashboardState extends State<Dashboard> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 40,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '© HIMTIKA 2021',
+                        style: GoogleFonts.poppins(),
+                      ),
+                      Text(
+                        'Powered by DoIT 5.0  ',
+                        style: GoogleFonts.poppins(),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
