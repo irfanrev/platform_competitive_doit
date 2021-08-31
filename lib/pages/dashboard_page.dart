@@ -1,4 +1,5 @@
 import 'package:cpc_platform/pages/final_page.dart';
+import 'package:cpc_platform/pages/landing_page.dart';
 import 'package:cpc_platform/pages/penyelisihan_page.dart';
 import 'package:cpc_platform/widgets/ranking.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,22 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  void onLogout() {
+    Get.defaultDialog(
+        title: 'Logout',
+        middleText: 'Keluar sekarang?',
+        confirm: IconButton(
+            onPressed: () {
+              Get.offAll(LandingPage(), transition: Transition.fadeIn);
+            },
+            icon: Icon(Icons.done_rounded)),
+        cancel: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.close_rounded)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +108,7 @@ class _DashboardState extends State<Dashboard> {
                               Text(
                                   'Competitive Programming Competition - DoIT 5.0'),
                               InkWell(
-                                onTap: () {},
+                                onTap: onLogout,
                                 child: Container(
                                   height: 40,
                                   padding: EdgeInsets.symmetric(horizontal: 13),

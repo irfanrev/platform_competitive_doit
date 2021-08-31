@@ -43,7 +43,7 @@ class _LoginAdminState extends State<LoginAdmin> {
                 ),
               ),
               Text(
-                'Silahkan login menggunakan email yang sudah didaftarkan',
+                'Masukan username dan password admin',
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   color: Colors.grey,

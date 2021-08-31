@@ -24,11 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
       titlePadding: EdgeInsets.all(15),
       radius: 10,
       title: 'Success',
-      content: Container(
-        width: 200,
-        height: 200,
-        child: Lottie.asset('assets/sukses.json'),
-      ),
+      middleText: 'Register berhasil!',
       confirm: ElevatedButton(
         onPressed: () => Get.offAll(Dashboard(), transition: Transition.fadeIn),
         child: Text('Oke'),

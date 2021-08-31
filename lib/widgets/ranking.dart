@@ -29,7 +29,7 @@ class _RankingState extends State<Ranking> {
               DocumentSnapshot data = snapshot.data!.docs[index];
               return Container(
                 margin: EdgeInsets.symmetric(vertical: 3.0),
-                padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 6.0),
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
@@ -50,7 +50,7 @@ class _RankingState extends State<Ranking> {
                   ),
                   trailing: Container(
                     width: 100,
-                    height: 40,
+                    height: 35,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: Colors.grey[300]),

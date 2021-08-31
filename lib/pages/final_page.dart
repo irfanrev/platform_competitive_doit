@@ -13,6 +13,7 @@ class _FinalState extends State<Final> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: PreferredSize(
         child: Container(
           width: MediaQuery.of(context).size.width,

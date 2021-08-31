@@ -34,8 +34,7 @@ class _ListFinalState extends State<ListFinal> {
                 DocumentSnapshot data = snapshot.data!.docs[index];
                 return Container(
                   margin: EdgeInsets.symmetric(vertical: 5.0),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 8.0, vertical: 15.0),
+                  padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
