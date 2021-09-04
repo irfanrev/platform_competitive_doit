@@ -1,35 +1,24 @@
+import 'package:cpc_platform/controllers/auth_controller.dart';
 import 'package:cpc_platform/pages/final_page.dart';
 import 'package:cpc_platform/pages/landing_page.dart';
 import 'package:cpc_platform/pages/penyelisihan_page.dart';
 import 'package:cpc_platform/widgets/ranking.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  UserCredential userCredential;
+  Dashboard({required this.userCredential});
 
   @override
   _DashboardState createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
-  void onLogout() {
-    Get.defaultDialog(
-        title: 'Logout',
-        middleText: 'Keluar sekarang?',
-        confirm: IconButton(
-            onPressed: () {
-              Get.offAll(LandingPage(), transition: Transition.fadeIn);
-            },
-            icon: Icon(Icons.done_rounded)),
-        cancel: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(Icons.close_rounded)));
-  }
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +97,7 @@ class _DashboardState extends State<Dashboard> {
                               Text(
                                   'Competitive Programming Competition - DoIT 5.0'),
                               InkWell(
-                                onTap: onLogout,
+                                onTap: authC.onLogout,
                                 child: Container(
                                   height: 40,
                                   padding: EdgeInsets.symmetric(horizontal: 13),

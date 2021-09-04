@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
       title: 'Success',
       middleText: 'Register berhasil!',
       confirm: ElevatedButton(
-        onPressed: () => Get.offAll(Dashboard(), transition: Transition.fadeIn),
+        onPressed: () {},
         child: Text('Oke'),
       ),
     );

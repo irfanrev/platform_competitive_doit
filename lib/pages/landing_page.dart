@@ -102,7 +102,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 Divider(
                   color: Colors.black,
-                  height: 30,
+                  height: 8,
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 100, vertical: 20),

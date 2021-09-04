@@ -19,14 +19,18 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwdC = TextEditingController();
 
   //sambungan ke controller
-  final authC = Get.put(AuthController(), permanent: true);
+  final authC = Get.find<AuthController>();
 
   // fungsi login
   void login(String email, String password) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-      Get.offAll(Dashboard(), transition: Transition.fadeIn);
+      Get.offAll(
+          Dashboard(
+            userCredential: userCredential,
+          ),
+          transition: Transition.fadeIn);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -112,7 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                             height: 15,
                           ),
                           ElevatedButton(
-                            onPressed: () => login(emailC.text, passwdC.text),
+                            onPressed: () =>
+                                authC.onLogin(emailC.text, passwdC.text),
                             child: Text(
                               'Login',
                               style: GoogleFonts.poppins(
