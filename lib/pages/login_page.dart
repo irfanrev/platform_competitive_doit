@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cpc_platform/controllers/auth_controller.dart';
 import 'package:cpc_platform/pages/dashboard_page.dart';
 import 'package:cpc_platform/pages/register_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +17,24 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailC = TextEditingController();
   TextEditingController passwdC = TextEditingController();
+
+  //sambungan ke controller
+  final authC = Get.put(AuthController(), permanent: true);
+
+  // fungsi login
+  void login(String email, String password) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      Get.offAll(Dashboard(), transition: Transition.fadeIn);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided for that user.');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,10 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                             height: 15,
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              Get.to(Dashboard(),
-                                  transition: Transition.fadeIn);
-                            },
+                            onPressed: () => login(emailC.text, passwdC.text),
                             child: Text(
                               'Login',
                               style: GoogleFonts.poppins(
