@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           print(snapshot.data);
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LoginPage(),
+            home: LandingPage(),
           );
         }
         return MaterialApp(

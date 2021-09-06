@@ -71,7 +71,7 @@ class _LandingPageState extends State<LandingPage> {
                                     horizontal: 15, vertical: 10),
                                 child: Center(
                                   child: Text(
-                                    'Daftar Sekarang',
+                                    'Kunjungi Official Website DoIT 5.0',
                                     style: GoogleFonts.poppins(
                                       color: Colors.white,
                                       fontSize: 18,

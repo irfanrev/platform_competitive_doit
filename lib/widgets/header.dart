@@ -7,9 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hovering/hovering.dart';
 
 class HeaderNav extends StatelessWidget {
-  const HeaderNav({
-    Key? key,
-  }) : super(key: key);
+  final waktu = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -50,18 +48,6 @@ class HeaderNav extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              InkWell(
-                onTap: () {
-                  Get.to(RegisterPage(), transition: Transition.fadeIn);
-                },
-                onHover: (value) {
-                  print(value);
-                },
-                child: Image.asset(
-                  'assets/daftar.png',
-                  height: 38,
-                ),
-              ),
               SizedBox(
                 width: 10,
               ),
