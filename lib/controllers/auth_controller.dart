@@ -18,7 +18,7 @@ class AuthController extends GetxController {
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: email, password: password);
-      Get.offAll(Dashboard(userCredential: userCredential),
+      Get.to(Dashboard(userCredential: userCredential),
           transition: Transition.fadeIn);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

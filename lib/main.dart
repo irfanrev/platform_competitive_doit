@@ -3,6 +3,7 @@ import 'package:cpc_platform/admin/page/dashboard_admin.dart';
 import 'package:cpc_platform/controllers/auth_controller.dart';
 import 'package:cpc_platform/pages/dashboard_page.dart';
 import 'package:cpc_platform/pages/final_page.dart';
+import 'package:cpc_platform/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
           print(snapshot.data);
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: snapshot.data != null ? Dashboard(userCredential: userCredential),
+            home: snapshot.data != null ? LoginPage() : LoginPage(),
           );
         }
         return MaterialApp(
