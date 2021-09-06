@@ -53,13 +53,22 @@ class _DashboardState extends State<Dashboard> {
                           SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            'Irfan Maulana',
-                            style: GoogleFonts.poppins(
-                                fontSize: 26,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
+                          widget.userCredential.user!.displayName != null
+                              ? Text(
+                                  widget.userCredential.user!.displayName
+                                      .toString(),
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 26,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Text(
+                                  widget.userCredential.user!.email.toString(),
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 26,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
                         ],
                       ),
                       SizedBox(
@@ -191,7 +200,11 @@ class _DashboardState extends State<Dashboard> {
                                             ),
                                             trailing: InkWell(
                                               onTap: () {
-                                                Get.to(Penyelisihan(),
+                                                Get.to(
+                                                    Penyelisihan(
+                                                      userCredential:
+                                                          widget.userCredential,
+                                                    ),
                                                     transition:
                                                         Transition.fadeIn);
                                               },
@@ -269,7 +282,11 @@ class _DashboardState extends State<Dashboard> {
                                             ),
                                             trailing: InkWell(
                                               onTap: () {
-                                                Get.to(Final(),
+                                                Get.to(
+                                                    Final(
+                                                      userCredential:
+                                                          widget.userCredential,
+                                                    ),
                                                     transition:
                                                         Transition.fadeIn);
                                               },
@@ -446,7 +463,7 @@ class _DashboardState extends State<Dashboard> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: AssetImage('assets/ngoding.png'),
+                            image: AssetImage('assets/noimage.png'),
                             fit: BoxFit.fitWidth,
                           ),
                         ),

@@ -22,9 +22,9 @@ class AuthController extends GetxController {
           transition: Transition.fadeIn);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
+        Get.snackbar('Error', 'User not found');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
+        Get.snackbar('Error', 'Wrong Password');
       }
     }
   }
@@ -37,7 +37,7 @@ class AuthController extends GetxController {
         confirm: IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
-              Get.offAll(LandingPage(), transition: Transition.fadeIn);
+              Get.to(LandingPage(), transition: Transition.fadeIn);
             },
             icon: Icon(Icons.done_rounded)),
         cancel: IconButton(

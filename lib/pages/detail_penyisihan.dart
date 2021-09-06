@@ -100,12 +100,6 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
               ),
               Row(
                 children: [
-                  Text(
-                    'Irfan Maulana',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                  ),
                   SizedBox(
                     width: 10,
                   ),
@@ -115,7 +109,7 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: AssetImage('assets/ngoding.png'),
+                        image: AssetImage('assets/noimage.png'),
                         fit: BoxFit.fitWidth,
                       ),
                     ),

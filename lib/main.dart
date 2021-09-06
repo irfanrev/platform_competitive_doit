@@ -19,24 +19,24 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  //final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
 
   final authC = Get.put(AuthController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-      stream: authC.streamAuthStatus,
+    return FutureBuilder(
+      future: _initialization,
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.active) {
+        if (snapshot.connectionState == ConnectionState.done) {
           print(snapshot.data);
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: snapshot.data != null ? LoginPage() : LoginPage(),
+            home: LoginPage(),
           );
         }
         return MaterialApp(
-          showSemanticsDebugger: false,
+          debugShowCheckedModeBanner: false,
           home: Scaffold(
             body: Center(
               child: CircularProgressIndicator(),

@@ -1,9 +1,11 @@
 import 'package:cpc_platform/widgets/final.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Final extends StatefulWidget {
-  const Final({Key? key}) : super(key: key);
+  final UserCredential userCredential;
+  Final({required this.userCredential});
 
   @override
   _FinalState createState() => _FinalState();
@@ -49,12 +51,15 @@ class _FinalState extends State<Final> {
               ),
               Row(
                 children: [
-                  Text(
-                    'Irfan Maulana',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                  ),
+                  widget.userCredential.user!.displayName != null
+                      ? Text(widget.userCredential.user!.displayName.toString(),
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                          ))
+                      : Text(widget.userCredential.user!.email.toString(),
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                          )),
                   SizedBox(
                     width: 10,
                   ),

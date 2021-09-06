@@ -98,22 +98,13 @@ class _DetailFinalState extends State<DetailFinal> {
               ),
               Row(
                 children: [
-                  Text(
-                    'Irfan Maulana',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
                   Container(
                     width: 55,
                     height: 55,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: AssetImage('assets/ngoding.png'),
+                        image: AssetImage('assets/noimage.png'),
                         fit: BoxFit.fitWidth,
                       ),
                     ),

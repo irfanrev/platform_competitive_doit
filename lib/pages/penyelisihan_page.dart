@@ -1,9 +1,11 @@
 import 'package:cpc_platform/widgets/penyelisihan.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Penyelisihan extends StatefulWidget {
-  const Penyelisihan({Key? key}) : super(key: key);
+  final UserCredential userCredential;
+  Penyelisihan({required this.userCredential});
 
   @override
   _PenyelisihanState createState() => _PenyelisihanState();
@@ -49,12 +51,15 @@ class _PenyelisihanState extends State<Penyelisihan> {
               ),
               Row(
                 children: [
-                  Text(
-                    'Irfan Maulana',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                    ),
-                  ),
+                  widget.userCredential.user!.displayName != null
+                      ? Text(widget.userCredential.user!.displayName.toString(),
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                          ))
+                      : Text(widget.userCredential.user!.email.toString(),
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                          )),
                   SizedBox(
                     width: 10,
                   ),
@@ -64,7 +69,7 @@ class _PenyelisihanState extends State<Penyelisihan> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: AssetImage('assets/ngoding.png'),
+                        image: AssetImage('assets/noimage.png'),
                         fit: BoxFit.fitWidth,
                       ),
                     ),
