@@ -27,14 +27,15 @@ class MyApp extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: authC.streamAuthStatus,
       builder: (context, snapshot) {
-        print(snapshot.data);
         if (snapshot.connectionState == ConnectionState.active) {
+          print(snapshot.data);
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LandingPage(),
+            home: snapshot.data != null ? Dashboard(userCredential: userCredential),
           );
         }
         return MaterialApp(
+          showSemanticsDebugger: false,
           home: Scaffold(
             body: Center(
               child: CircularProgressIndicator(),

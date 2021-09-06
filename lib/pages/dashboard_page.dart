@@ -432,7 +432,7 @@ class _DashboardState extends State<Dashboard> {
                   Row(
                     children: [
                       Text(
-                        'Irfan Maulana',
+                        widget.userCredential.user!.email.toString(),
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                         ),
