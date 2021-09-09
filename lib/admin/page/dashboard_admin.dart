@@ -1,3 +1,4 @@
+import 'package:cpc_platform/admin/page/hasil_jabawaban.dart';
 import 'package:cpc_platform/admin/page/input_final.dart';
 import 'package:cpc_platform/admin/page/input_penyelisihan.dart';
 import 'package:cpc_platform/admin/page/input_rating.dart';
@@ -366,7 +367,8 @@ class _DashboardAmdinState extends State<DashboardAmdin> {
                                 child: ListTile(
                                   title: Text('Lihat Hasil'),
                                   trailing: InkWell(
-                                    onTap: () {},
+                                    onTap: () => Get.to(HasilPage(),
+                                        transition: Transition.fadeIn),
                                     child: Container(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 15, vertical: 8),
@@ -385,6 +387,37 @@ class _DashboardAmdinState extends State<DashboardAmdin> {
                                           ),
                                         ),
                                       ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(bottom: 13),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 10),
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: ListTile(
+                                  title: Text('Status'),
+                                  trailing: InkWell(
+                                    onTap: () {},
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 15, vertical: 8),
+                                      width: 100,
+                                      height: 40,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.green),
+                                      child: Center(
+                                          child: Switch(
+                                              value: false,
+                                              onChanged: (value) {
+                                                setState(() {});
+                                              })),
                                     ),
                                   ),
                                 ),

@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           print(snapshot.data);
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            home: LandingPage(),
+            home: DashboardAmdin(),
           );
         }
         return MaterialApp(

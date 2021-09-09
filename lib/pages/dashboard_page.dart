@@ -1,4 +1,5 @@
 import 'package:cpc_platform/controllers/auth_controller.dart';
+import 'package:cpc_platform/controllers/logic_controller.dart';
 import 'package:cpc_platform/pages/final_page.dart';
 import 'package:cpc_platform/pages/landing_page.dart';
 import 'package:cpc_platform/pages/penyelisihan_page.dart';
@@ -19,6 +20,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   final authC = Get.find<AuthController>();
+
+  final logicC = Get.find<LogicController>();
 
   @override
   Widget build(BuildContext context) {
@@ -242,13 +245,13 @@ class _DashboardState extends State<Dashboard> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Belum selesai',
+                                                  'Belum Selesai',
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 14,
                                                     color: Colors.red,
                                                     fontWeight: FontWeight.w300,
                                                   ),
-                                                )
+                                                ),
                                               ],
                                             ),
                                           )
