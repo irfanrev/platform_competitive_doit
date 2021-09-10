@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
 
 class HasilPage extends StatefulWidget {
   const HasilPage({Key? key}) : super(key: key);
@@ -10,9 +15,38 @@ class HasilPage extends StatefulWidget {
   _HasilPageState createState() => _HasilPageState();
 }
 
+//ambil list dari file storage
+Future<void> listExample() async {
+  firebase_storage.ListResult result =
+      await firebase_storage.FirebaseStorage.instance.ref().listAll();
+
+  result.items.forEach((firebase_storage.Reference ref) {
+    print('Found file: $ref');
+  });
+
+  result.prefixes.forEach((firebase_storage.Reference ref) {
+    print('Found directory: $ref');
+  });
+}
+
+Future<void> downloadFileExample() async {
+  Directory appDocDir = await getApplicationDocumentsDirectory();
+  File downloadToFile = File('${appDocDir.path}/download-logo.png');
+
+  try {
+    await firebase_storage.FirebaseStorage.instance
+        .ref('uploads/logo.png')
+        .writeToFile(downloadToFile);
+  } on firebase_core.FirebaseException catch (e) {
+    // e.g, e.code == 'canceled'
+  }
+}
+
 class _HasilPageState extends State<HasilPage> {
   @override
   Widget build(BuildContext context) {
+    firebase_storage.FirebaseStorage storage =
+        firebase_storage.FirebaseStorage.instance;
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
