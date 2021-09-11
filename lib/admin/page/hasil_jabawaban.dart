@@ -29,13 +29,26 @@ Future<void> listExample() async {
   });
 }
 
-Future<void> downloadFileExample() async {
+Future<void> downloadBabak1() async {
   Directory appDocDir = await getApplicationDocumentsDirectory();
-  File downloadToFile = File('${appDocDir.path}/download-logo.png');
+  File downloadToFile = File('${appDocDir.path}/babak1.zip');
 
   try {
     await firebase_storage.FirebaseStorage.instance
-        .ref('uploads/logo.png')
+        .ref('hasil-babak1/')
+        .writeToFile(downloadToFile);
+  } on firebase_core.FirebaseException catch (e) {
+    // e.g, e.code == 'canceled'
+  }
+}
+
+Future<void> downloadBabak2() async {
+  Directory appDocDir = await getApplicationDocumentsDirectory();
+  File downloadToFile = File('${appDocDir.path}/babak1.zip');
+
+  try {
+    await firebase_storage.FirebaseStorage.instance
+        .ref('hasil-babak2/')
         .writeToFile(downloadToFile);
   } on firebase_core.FirebaseException catch (e) {
     // e.g, e.code == 'canceled'
@@ -143,7 +156,7 @@ class _HasilPageState extends State<HasilPage> {
                         title: Text('Download Hasil Babak 1'),
                         subtitle: Text('Penyelisihan'),
                         trailing: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => downloadBabak1(),
                           child: Text('Download'),
                           style: ElevatedButton.styleFrom(
                             primary: Colors.green,
