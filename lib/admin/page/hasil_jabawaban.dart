@@ -31,7 +31,7 @@ Future<void> listExample() async {
 
 Future<void> downloadBabak1() async {
   Directory appDocDir = await getApplicationDocumentsDirectory();
-  File downloadToFile = File('${appDocDir.path}/babak1.zip');
+  File downloadToFile = File('${appDocDir.path}/babak1');
 
   try {
     await firebase_storage.FirebaseStorage.instance
@@ -44,7 +44,7 @@ Future<void> downloadBabak1() async {
 
 Future<void> downloadBabak2() async {
   Directory appDocDir = await getApplicationDocumentsDirectory();
-  File downloadToFile = File('${appDocDir.path}/babak1.zip');
+  File downloadToFile = File('${appDocDir.path}/babak1');
 
   try {
     await firebase_storage.FirebaseStorage.instance
