@@ -21,8 +21,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   final authC = Get.find<AuthController>();
 
-  final logicC = Get.find<LogicController>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -190,7 +188,7 @@ class _DashboardState extends State<Dashboard> {
                                         children: [
                                           ListTile(
                                             title: Text(
-                                              'Babak Penyelisihan',
+                                              'Latihan ',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 18,
                                                 color: Colors.black,
@@ -198,7 +196,7 @@ class _DashboardState extends State<Dashboard> {
                                               ),
                                             ),
                                             subtitle: Text(
-                                              'Pada babak ini akan diberikan 10 soal',
+                                              'Tahap ini merupakan tahap latihan (tidak berpengaruh terhadap hasil lomba)',
                                               style: GoogleFonts.poppins(),
                                             ),
                                             trailing: InkWell(
@@ -245,7 +243,7 @@ class _DashboardState extends State<Dashboard> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Belum Selesai',
+                                                  'Training',
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 14,
                                                     color: Colors.red,
@@ -272,7 +270,7 @@ class _DashboardState extends State<Dashboard> {
                                         children: [
                                           ListTile(
                                             title: Text(
-                                              'Babak Final',
+                                              'Perlombaan Competitive Programming',
                                               style: GoogleFonts.poppins(
                                                 fontSize: 18,
                                                 color: Colors.black,
@@ -280,7 +278,7 @@ class _DashboardState extends State<Dashboard> {
                                               ),
                                             ),
                                             subtitle: Text(
-                                              'Pada babak ini akan diberikan 10 soal',
+                                              'Tahap ini merupakan tahap perlombaan sesungguhnya',
                                               style: GoogleFonts.poppins(),
                                             ),
                                             trailing: InkWell(
@@ -327,7 +325,7 @@ class _DashboardState extends State<Dashboard> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  'Belum selesai',
+                                                  'Important',
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 14,
                                                     color: Colors.red,

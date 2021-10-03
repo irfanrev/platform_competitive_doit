@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwdC = TextEditingController();
 
   //sambungan ke controller
-  final authC = Get.find<AuthController>();
+  final authC = Get.put(AuthController());
 
   // fungsi login
   void login(String email, String password) async {
@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           Text(
-                            'Silahkan login menggunakan email yang sudah didaftarkan',
+                            'Silahkan login menggunakan username dan password yang sudah diberikan',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               color: Colors.grey,
@@ -133,24 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            children: [
-                              Text('Belum punya akun?'),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              TextButton(
-                                  onPressed: () {
-                                    Get.to(RegisterPage(),
-                                        transition: Transition.fadeIn);
-                                  },
-                                  style: TextButton.styleFrom(
-                                    primary: Colors.red,
-                                  ),
-                                  child: Text('Daftar Sekarang'))
-                            ],
+                            height: 24,
                           ),
                           SizedBox(
                             height: 20,

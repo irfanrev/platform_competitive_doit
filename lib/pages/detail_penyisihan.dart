@@ -190,10 +190,22 @@ class _DetailPenyisihanState extends State<DetailPenyisihan> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        'Source Code',
-                                        style:
-                                            GoogleFonts.poppins(fontSize: 16),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Source Code',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16),
+                                          ),
+                                          Text(
+                                            'Format nama file : Nama Tim_Nama Soal.zip/rar/cpp/java/c',
+                                            style: GoogleFonts.poppins(
+                                                fontSize: 16,
+                                                color: Colors.red),
+                                          ),
+                                        ],
                                       ),
                                       SizedBox(
                                         width: 100,
