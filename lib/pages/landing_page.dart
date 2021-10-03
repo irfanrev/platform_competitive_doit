@@ -1,4 +1,4 @@
-import 'dart:html';
+import 'dart:html' as html;
 
 import 'package:cpc_platform/admin/page/login_admin.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +64,10 @@ class _LandingPageState extends State<LandingPage> {
                               height: 20,
                             ),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                html.window.location.href =
+                                    "https://himtika.cs.unsika.ac.id/pekan-it/doit.php";
+                              },
                               child: Container(
                                 width: 300,
                                 margin: EdgeInsets.symmetric(

@@ -40502,7 +40502,7 @@ r=Z.Gv(C.p,8)
 p=b.G(p).f
 return M.fM(q,C.j,T.ho(C.aN,H.a([B.j0(H.a([o,n,s,r,M.W(q,T.az(H.a([L.E("\xa9 HIMTIKA 2021",q,q,q,B.X(q,q,q),q,q),T.az(H.a([L.E("Powered by DoIT 5.0  ",q,q,q,B.X(q,q,q),q,q),L.E("|",q,q,q,q,q,q),U.aH1(L.E("Admin",q,q,q,q,q,q),new X.afY(),q)],m),C.l,C.n,C.k)],m),C.l,C.ah,C.k),q,q,q,q,q,new V.B(100,20,100,20),q,p.a.a)],m),new L.rI(q)),new A.Hu(new P.cr(Date.now(),!1),q)],m),C.aV))}}
 X.afX.prototype={
-$0:function(){},
+$0:function(){window.location.href="https://himtika.cs.unsika.ac.id/pekan-it/doit.php"},
 $S:0}
 X.afY.prototype={
 $0:function(){Y.hc($.aB(),new M.xJ(null),C.aG,t.z)},
