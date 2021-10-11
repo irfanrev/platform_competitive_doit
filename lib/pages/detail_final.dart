@@ -185,22 +185,10 @@ class _DetailFinalState extends State<DetailFinal> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Source Code',
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 16),
-                                          ),
-                                          Text(
-                                            'Format nama file : Nama Tim_Nama Soal.zip/rar/cpp/java/c',
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 16,
-                                                color: Colors.red),
-                                          ),
-                                        ],
+                                      Text(
+                                        'Source Code',
+                                        style:
+                                            GoogleFonts.poppins(fontSize: 16),
                                       ),
                                       SizedBox(
                                         width: 30,
@@ -258,8 +246,13 @@ class _DetailFinalState extends State<DetailFinal> {
                               ),
                             ],
                           ),
+                          Text(
+                            'Format nama file : Nama Tim_Nama Soal.zip/rar/cpp/java/c',
+                            style: GoogleFonts.poppins(
+                                fontSize: 16, color: Colors.red),
+                          ),
                           SizedBox(
-                            height: 15,
+                            height: 20,
                           ),
                           ElevatedButton(
                             onPressed: submitCode,
